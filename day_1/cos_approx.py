@@ -12,8 +12,9 @@ from math import pi
 
 def cos_approx(x, accuracy=10):
     """Returns an approximation to the cos(x) function based on the Taylor 
-    expansion sum( (-1)^n * x^(2*n) / (2*n)! ), where n is the total number of 
-    expansion terms
+    expansion sum from 0 to 'accuracy' of ( (-1)^n * x^(2*n) / (2*n)! ), where 
+    'n' is the index into the expansion term, 'x' is the input into the Cosine
+    function, and n='accuracy' is the last term in the truncation
     """
     # Generate individual terms of the Taylor expansion
     summands = [(-1)**n*x**(2*n)/factorial(2*n) for n in range(accuracy+1)]
